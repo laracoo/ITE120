@@ -1,0 +1,10 @@
+body{
+    padding: 20px;
+    margin: auto;
+    width: 80%;
+}
+
+h1,p{
+    margin-left: 20px;
+    margin-right: 20px;
+}
