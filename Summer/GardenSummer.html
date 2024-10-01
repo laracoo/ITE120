@@ -37,9 +37,10 @@
             transition: transform 0.2s;
         }
         .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+            width: 100%; /* Make the image take the full width of the product container */
+    height: 150px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure images maintain their aspect ratio and fill the height/width */
+    border-radius: 5px; /* Optional rounded corners for images */
         }
         .product h3 {
             font-size: 1.2em;
@@ -73,6 +74,38 @@
             padding: 10px;
             margin-top: 20px;
         }
+        .top-left {
+  position: absolute;
+  top: 10px;  /* Position from the top */
+  left: 10px; /* Position from the left */
+}
+
+svg {
+  width: 50px;  
+  height: 50px;
+  fill: black;  /* Set the fill color to black */
+  cursor: pointer;  /* Change cursor to pointer when hovering */
+}
+
+a {
+  text-decoration: none;  /* Remove underline from the link */
+}
+
+.home-icon {
+    position: absolute; /* Position it anywhere on the page */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+}
+
+.home-icon a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Change color of the icon (stroke color) */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.home-icon a:hover {
+    color: gray; /* Change color on hover */
+}
     </style>
 </head>
 <body>
@@ -129,6 +162,21 @@
         alert(`${product.name} has been added to your cart!`);
     }
 </script>
+<div class="top-left">
+    <a href="javascript:history.back()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left">
+        <path d="M18 15h-6v4l-7-7 7-7v4h6v6z"/>
+      </svg>
+    </a>
+  </div>
 
+  <div class="home-icon"></div>
+    <a href="http://127.0.0.1:5502/MainPage.html#"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house">
+            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" fill="none" />
+            <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" />
+        </svg>
+    </a>
+</div>
 </body>
 </html>
