@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autumn Garden Decorations</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #fbe9e7; /* Мягкий осенний цвет */
+            color: #333;
+        }
+        header {
+            background-color: #ffab91;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 22%;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3 {
+            font-size: 1.2em;
+            color: #d84315;
+        }
+        .product p {
+            color: #666;
+        }
+        .product .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #d84315;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #bf360c;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Autumn Garden Decorations</h1>
+    <p>Add a cozy autumn touch to your garden!</p>
+</header>
+
+<div class="container">
+    <div class="product-grid" id="product-grid">
+        <!-- Products will be dynamically inserted here -->
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Fall Garden. All rights reserved.</p>
+</footer>
+
+<script>
+    const products = [
+        { id: 1, name: "Pumpkin Yard Stakes", description: "Festive pumpkin-shaped yard stakes.", price: 30, image: "./imagesFall/Garden/garf.jpg" },
+        { id: 2, name: "Leaf Wind Chimes", description: "Wind chimes with fall leaf decorations.", price: 25, image: "./imagesFall/Garden/garf1.jpg" },
+        { id: 3, name: "Garden Gnomes", description: "Cute gnomes dressed for autumn.", price: 40, image: "./imagesFall/Garden/garf2.jpg" },
+        { id: 4, name: "Autumn Flag", description: "Decorative flag with fall colors.", price: 20, image: "./imagesFall/Garden/garf3.jpg" },
+        { id: 5, name: "Cornstalk Decor", description: "Cornstalks to decorate your garden fence.", price: 35, image: "./imagesFall/Garden/garf4.jpg" },
+        { id: 6, name: "Solar Lights", description: "Solar-powered garden lights with an autumn twist.", price: 45, image: "./imagesFall/Garden/garf5.jpg" },
+        { id: 7, name: "Harvest Planters", description: "Beautiful planters for autumn flowers.", price: 50, image: "./imagesFall/Garden/garf6.jpg" },
+        { id: 8, name: "Fall-themed Bird Feeder", description: "A bird feeder with autumn accents.", price: 30, image: "./imagesFall/Garden/garf7.jpg" },
+        { id: 9, name: "Scarecrow Garden Statue", description: "Classic scarecrow decor for your garden.", price: 40, image: "./imagesFall/Garden/garf8.jpg" },
+        { id: 10, name: "Mushroom Garden Lights", description: "Mushroom-shaped lights for a whimsical touch.", price: 55, image: "./imagesFall/Garden/garf9.jpg" }
+    ];
+
+    const productGrid = document.getElementById("product-grid");
+
+    products.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p class="price">$${product.price}</p>
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+    });
+
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart!`);
+    }
+</script>
+
+</body>
+</html>

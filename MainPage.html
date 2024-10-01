@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Extravaganza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(to right, #eceded, #ACB6E5); /* Gradient background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        header {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            color: black;
+            z-index: 1;
+        }
+        header h1 {
+            font-size: 4.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        .subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin: 10px 0;
+            max-width: 800px;
+            line-height: 1.4;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .divider {
+            width: 100%;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: 40px 0;
+        }
+        .season-links {
+            display: flex;
+            gap: 0;
+            flex-direction: row;
+            width: 100%;
+            height: calc(100vh - 200px);
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        .season-link {
+            flex: 1;
+            height: 200px;
+            text-decoration: none;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 2.2em;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        .season-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+        }
+        .season-winter {
+            background-image: url('winterbutton.jpg');
+        }
+        .season-spring {
+            background-image: url('spring.jpg');
+        }
+        .season-summer {
+            background-image: url('summer.jpg');
+        }
+        .season-fall {
+            background-image: url('fall.jpg');
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            color: black;
+            font-size: 0.9em;
+        }
+
+        /* Cart Button */
+        .cart-button {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background-color: #16c8f5;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .cart-button:hover {
+            background-color: #16c8f5;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SEASONAL EXTRAVAGANZA</h1>
+    <p class="subtitle">Explore our curated selection of products for every season. From cozy winter essentials to vibrant summer gear, we have everything you need to celebrate each season in style. Find the perfect items to enhance your seasonal experience and make every moment memorable!</p>
+</header>
+
+<div class="divider"></div> <!-- Divider line -->
+
+<!-- Cart Button -->
+<a href="cart.html" class="cart-button">Cart</a>
+
+<div class="season-links">
+    <a href="MainPageWinter.html" class="season-link season-winter">Winter</a>
+    <a href="MainPageSpring.html" class="season-link season-spring">Spring</a>
+    <a href="MainPageSummer.html" class="season-link season-summer">Summer</a>
+    <a href="MainPageFall.html" class="season-link season-fall">Fall</a>
+</div>
+
+<footer>
+    <p>&copy; 2024 Seasonal Extravaganza. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
