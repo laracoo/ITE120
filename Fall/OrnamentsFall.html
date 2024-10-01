@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autumn Ornaments and Decorations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fbe9e7; /* Мягкий осенний цвет */
+            color: #333;
+        }
+        header {
+            background-color: #ffab91;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 22%;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3 {
+            font-size: 1.2em;
+            color: #d84315;
+        }
+        .product p {
+            color: #666;
+        }
+        .product .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #d84315;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #bf360c;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Autumn Ornaments</h1>
+    <p>Add a touch of autumn warmth to your home with these ornaments!</p>
+</header>
+
+<div class="container">
+    <div class="product-grid" id="product-grid">
+        <!-- Products will be dynamically inserted here -->
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Autumn Charm. All rights reserved.</p>
+</footer>
+
+<script>
+    const products = [
+        { id: 1, name: "Acorn Ornaments", description: "Handcrafted acorn decorations.", price: 15, image: "./ImagesFall/Ornaments/ornf.jpg" },
+        { id: 2, name: "Autumn Leaf Garland", description: "Beautiful garland made of fall leaves.", price: 25, image: "./ImagesFall/Ornaments/ornf1.jpg" },
+        { id: 3, name: "Pumpkin Table Centerpiece", description: "A lovely pumpkin-themed centerpiece.", price: 30, image: "./ImagesFall/Ornaments/ornf2.jpg" },
+        { id: 4, name: "Owl Figurines", description: "Adorable owl figurines for your autumn decor.", price: 20, image: "./ImagesFall/Ornaments/ornf3.jpg" },
+        { id: 5, name: "Fall Candle Holders", description: "Candle holders decorated with autumn leaves.", price: 25, image: "./ImagesFall/Ornaments/ornf4.jpg" },
+        { id: 6, name: "Fall Candle", description: "Candle decorated with autumn leaves.", price: 25, image: "./ImagesFall/Ornaments/ornf5.jpg" },
+        { id: 7, name: "Pumpkin String Lights", description: "Festive string lights shaped like pumpkins.", price: 35, image: "./ImagesFall/Ornaments/ornf6.jpg" },
+        { id: 8, name: "Harvest Wreath", description: "Wreath made of autumn flowers and leaves.", price: 40, image: "./ImagesFall/Ornaments/ornf7.jpg" },
+        { id: 9, name: "Corn Husk Decorations", description: "Decorative corn husks for a rustic touch.", price: 18, image: "./ImagesFall/Ornaments/ornf8.jpg" },
+        { id: 10, name: "Mason Jar Lanterns", description: "Lanterns made from mason jars with fall-themed decorations.", price: 28, image: "./ImagesFall/Ornaments/ornf9.jpg" }
+    ];
+
+    const productGrid = document.getElementById("product-grid");
+
+    products.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p class="price">$${product.price}</p>
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+    });
+
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart!`);
+    }
+</script>
+
+</body>
+</html>
+

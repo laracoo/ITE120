@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Ornaments - Festive Decorations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0277bd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 22%;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3 {
+            font-size: 1.2em;
+            color: #0288d1;
+        }
+        .product p {
+            color: #666;
+        }
+        .product .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #0277bd;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Christmas Ornaments</h1>
+    <p>Bring the festive spirit to your home with our beautiful Christmas ornaments.</p>
+</header>
+
+<div class="container">
+    <div class="product-grid" id="product-grid">
+        <!-- Products will be dynamically inserted here -->
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Festive Decorations. All rights reserved.</p>
+</footer>
+
+<script>
+    const products = [
+        { id: 1, name: "Glass Baubles", description: "Elegant hand-blown glass baubles for a traditional Christmas tree.", price: 30, image: "./ImagesWinter/Ornaments/Ornament1.png" },
+        { id: 2, name: "Santa Figurines", description: "Cute Santa Claus figurines to decorate your shelves and mantle.", price: 15, image: "./ImagesWinter/Ornaments/Ornament2.png" },
+        { id: 3, name: "Star Tree Topper", description: "A sparkling star to crown your Christmas tree with festive charm.", price: 25, image: "./ImagesWinter/Ornaments/Ornament3.png" },
+        { id: 4, name: "Personalized Ornaments", description: "Customize your tree with personalized name or date ornaments.", price: 20, image: "./ImagesWinter/Ornaments/Ornament4.png" },
+        { id: 5, name: "Candy Cane Ornaments", description: "Classic candy cane-shaped ornaments to add a sweet touch to your decor.", price: 10, image: "./ImagesWinter/Ornaments/Ornament5.png" },
+        { id: 6, name: "Snowman Ornaments", description: "Adorable snowman-shaped ornaments to bring winter fun indoors.", price: 12, image: "./ImagesWinter/Ornaments/Ornament6.png" },
+        { id: 7, name: "LED Light Baubles", description: "Brighten your tree with LED-lit baubles that glow with holiday cheer.", price: 35, image: "./ImagesWinter/Ornaments/Ornament7.png" },
+        { id: 8, name: "Reindeer Figurines", description: "Festive reindeer figurines to place under the tree or around your home.", price: 18, image: "./ImagesWinter/Ornaments/Ornament8.png" },
+        { id: 9, name: "Golden Bells", description: "Classic golden bells that ring in the holiday spirit.", price: 15, image: "./ImagesWinter/Ornaments/Ornament9.png" },
+        { id: 10, name: "Christmas Angel", description: "A beautifully crafted angel ornament to hang on your tree.", price: 28, image: "./ImagesWinter/Ornaments/Ornament10.png" }
+    ];
+
+    const productGrid = document.getElementById("product-grid");
+
+    products.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p class="price">$${product.price}</p>
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+    });
+
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart!`);
+    }
+</script>
+
+</body>
+</html>
